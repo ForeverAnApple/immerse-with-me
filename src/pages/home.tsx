@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
-import { BookOpen, Users, Clock, Play, FileText, Headphones, Monitor } from 'lucide-react'
+import { BookOpen, Users, Clock, Play, FileText, Headphones, Monitor, Sparkles } from 'lucide-react'
 
 // Types for our dummy data
 type MediaType = 'Anime' | 'Manga' | 'LN' | 'VN' | 'Listening' | 'Reading'
@@ -273,7 +273,10 @@ export function HomePage() {
           ))}
         </motion.div>
 
-        {/* Live Log Feed */}
+          {/* Mascot Section */}
+          <MascotSection variants={itemVars} />
+
+          {/* Live Log Feed */}
         <motion.div 
           variants={itemVars} 
           className="mt-16 w-full max-w-2xl"
@@ -345,6 +348,76 @@ export function HomePage() {
 
       </motion.div>
     </div>
+  )
+}
+
+function MascotSection({ variants }: { variants: any }) {
+  return (
+    <motion.div 
+      variants={variants}
+      className="my-16 flex w-full max-w-4xl flex-col items-center gap-8 rounded-3xl border border-white/60 bg-white/40 p-8 shadow-sm backdrop-blur-sm md:flex-row md:gap-12 md:p-12"
+    >
+      {/* Mascot Container */}
+      <div className="relative flex h-48 w-48 shrink-0 items-center justify-center">
+        {/* The Blob */}
+        <div className="absolute inset-0 animate-blob bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400 opacity-90 blur-[1px]"></div>
+        
+        {/* Face Overlay */}
+        <svg 
+          viewBox="0 0 100 100" 
+          className="relative z-10 h-24 w-24 text-white drop-shadow-sm"
+          fill="currentColor"
+        >
+          {/* Left Eye */}
+          <circle cx="35" cy="45" r="4" />
+          {/* Right Eye */}
+          <circle cx="65" cy="45" r="4" />
+          {/* Smile */}
+          <path 
+            d="M 35 60 Q 50 70 65 60" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="4" 
+            strokeLinecap="round" 
+          />
+        </svg>
+
+        {/* Floating Accents */}
+        <motion.div 
+          animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }} 
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -right-2 -top-2 text-yellow-400"
+        >
+          <Sparkles className="h-8 w-8 fill-current" />
+        </motion.div>
+        
+        <motion.div 
+          animate={{ y: [0, 6, 0], rotate: [0, -5, 0] }} 
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute -bottom-2 -left-2 text-emerald-400"
+        >
+          <div className="h-4 w-4 rounded-full bg-current" />
+        </motion.div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col items-center text-center md:items-start md:text-left">
+        <h3 className="mb-3 font-serif-jp text-2xl font-bold text-indigo-950">
+          Small steps, big progress!
+        </h3>
+        <p className="mb-6 max-w-md text-stone-600 leading-relaxed">
+          Consistent daily immersion is the key to fluency. Even 15 minutes of reading or listening today puts you ahead of yesterday.
+        </p>
+        
+        <button className="group relative overflow-hidden rounded-full bg-indigo-600 px-8 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-indigo-700 hover:shadow-lg active:scale-95">
+          <span className="relative z-10 flex items-center gap-2">
+            Start a Session
+            <Play className="h-3 w-3 fill-current" />
+          </span>
+          <div className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0" />
+        </button>
+      </div>
+    </motion.div>
   )
 }
 
