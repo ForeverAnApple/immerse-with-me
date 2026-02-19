@@ -236,7 +236,7 @@ export function HomePage() {
         {/* Hero Section */}
         <motion.div variants={itemVars} className="mb-16 text-center">
           <h1 className="font-serif-jp text-5xl font-bold tracking-tight text-[#1F2A44] sm:text-7xl lg:text-8xl">
-            Japanese Fluency Is Built in Hours.
+            Fluency Is Built in Hours
           </h1>
           <p className="mt-8 max-w-lg mx-auto text-lg text-stone-600 leading-relaxed">
             <AnimatedCounter value={23482 + (totalLogs - 145203)} />
