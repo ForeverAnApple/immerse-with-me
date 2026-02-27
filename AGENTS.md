@@ -1,6 +1,6 @@
-# Surgent Web Template
+# Web Template
 
-React template for Surgent AI App Builder.
+React web application template.
 
 ## Stack
 

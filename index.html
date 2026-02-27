@@ -9,7 +9,7 @@
   <body>
     <div id="root"></div>
     <script>
-        // Post errors to parent window (for Surgent preview integration)
+        // Post errors to parent window (for preview integration)
         window._errorsSent = new Set();
         function postErrorToParent(message, stack, source) {
           // Dedupe errors
