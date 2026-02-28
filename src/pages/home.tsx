@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BookOpen, Users, Clock, Play, FileText, Headphones, Monitor } from 'lucide-react'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 // Types for our dummy data
 type MediaType = 'Anime' | 'Manga' | 'LN' | 'VN' | 'Listening' | 'Reading'
@@ -170,7 +171,7 @@ export function HomePage() {
   } as const
 
   return (
-    <div className="relative min-h-screen w-full bg-[#FAFAF7] text-[#1A1A1A] font-sans selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="relative min-h-screen w-full bg-background text-foreground font-sans selection:bg-primary/10 selection:text-primary">
       {/* Font Import */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&display=swap');
@@ -180,28 +181,29 @@ export function HomePage() {
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Subtle paper texture/noise */}
-        <div className="absolute inset-0 opacity-[0.4] mix-blend-multiply" 
+        <div className="absolute inset-0 opacity-[0.4] dark:opacity-[0.15] mix-blend-multiply dark:mix-blend-soft-light" 
              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
         />
         {/* Very subtle gradients */}
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-white/80 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-background/80 to-transparent" />
       </div>
 
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-black/5 bg-[#FAFAF7]/80 px-6 backdrop-blur-md">
+      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur-md">
         <div className="flex items-center gap-2">
-          <BookOpen className="h-5 w-5 text-[#1F2A44]" />
-          <span className="font-serif-jp text-lg font-bold tracking-tight text-[#1F2A44]">Immerse With Me</span>
+          <BookOpen className="h-5 w-5 text-foreground" />
+          <span className="font-serif-jp text-lg font-bold tracking-tight text-foreground">Immerse With Me</span>
         </div>
 
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-4">
-            <button className="text-[#1F2A44]/60 transition-colors hover:text-[#1F2A44]" aria-label="Discord">
+            <ThemeToggle />
+            <button className="text-foreground/60 transition-colors hover:text-foreground" aria-label="Discord">
               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor">
                 <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z"/>
               </svg>
             </button>
-            <button className="text-[#1F2A44]/60 transition-colors hover:text-[#1F2A44]" aria-label="GitHub">
+            <button className="text-foreground/60 transition-colors hover:text-foreground" aria-label="GitHub">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -220,7 +222,7 @@ export function HomePage() {
               </svg>
             </button>
           </div>
-          <div className="text-sm font-medium text-stone-500">
+          <div className="text-sm font-medium text-muted-foreground">
             Join now
           </div>
         </div>
@@ -235,10 +237,10 @@ export function HomePage() {
       >
         {/* Hero Section */}
         <motion.div variants={itemVars} className="mb-16 text-center">
-          <h1 className="font-serif-jp text-5xl font-bold tracking-tight text-[#1F2A44] sm:text-7xl lg:text-8xl">
+          <h1 className="font-serif-jp text-5xl font-bold tracking-tight text-foreground sm:text-7xl lg:text-8xl">
             Fluency Is Built in Hours.
           </h1>
-          <p className="mt-8 max-w-lg mx-auto text-lg text-stone-600 leading-relaxed">
+          <p className="mt-8 max-w-lg mx-auto text-lg text-muted-foreground leading-relaxed">
             <AnimatedCounter value={23482 + (totalLogs - 145203)} />
             {' '}hours tracked across reading, listening, and watching.
           </p>
@@ -252,19 +254,19 @@ export function HomePage() {
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="group"
             >
-              <Card className={cn("relative overflow-hidden border border-black/5 bg-white shadow-sm transition-all hover:shadow-md", stat.border)}>
+              <Card className={cn("relative overflow-hidden border border-border bg-card shadow-sm transition-all hover:shadow-md", stat.border)}>
                 <div className={cn("absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100", stat.bg)} />
                 <CardContent className="relative p-8 text-center">
-                  <div className={cn("mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-black/5", stat.color)}>
+                  <div className={cn("mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-card shadow-sm ring-1 ring-border", stat.color)}>
                     <stat.icon className="h-6 w-6" />
                   </div>
-                  <div className="font-serif-jp text-4xl font-bold text-[#1A1A1A] tabular-nums">
+                  <div className="font-serif-jp text-4xl font-bold text-foreground tabular-nums">
                     {stat.value}
                   </div>
-                  <div className="mt-1 text-sm font-medium uppercase tracking-wide text-stone-500">
+                  <div className="mt-1 text-sm font-medium uppercase tracking-wide text-muted-foreground">
                     {stat.label}
                   </div>
-                  <div className="mt-2 text-xs text-stone-400">
+                  <div className="mt-2 text-xs text-muted-foreground/70">
                     {stat.sub}
                   </div>
                 </CardContent>
@@ -281,13 +283,13 @@ export function HomePage() {
           <div className="mb-6 flex items-center justify-between px-2">
              <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-xs font-medium uppercase tracking-wider text-stone-500">Live Activity</span>
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Live Activity</span>
              </div>
-          </div>
+           </div>
           
           <div className="relative space-y-3">
             {/* Gradient mask for fading out at bottom */}
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FAFAF7] to-transparent z-20" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-20" />
             
             <AnimatePresence initial={false} mode='popLayout'>
               {recentLogs.map((log) => {
@@ -302,9 +304,9 @@ export function HomePage() {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="relative z-10"
                   >
-                    <div className="group flex items-center gap-4 rounded-xl border border-black/5 bg-white p-3 shadow-sm transition-all hover:border-black/10 hover:shadow-md">
+                    <div className="group flex items-center gap-4 rounded-xl border border-border bg-card p-3 shadow-sm transition-all hover:border-border hover:shadow-md">
                       {/* Avatar */}
-                      <Avatar className="h-10 w-10 border border-black/5">
+                      <Avatar className="h-10 w-10 border border-border">
                         <AvatarFallback className={cn("text-xs font-bold", log.member.color)}>
                           {log.member.initials}
                         </AvatarFallback>
@@ -313,14 +315,14 @@ export function HomePage() {
                       {/* Content */}
                       <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5">
                         <div className="flex items-center gap-2">
-                          <span className="truncate text-sm font-bold text-[#1A1A1A]">
+                          <span className="truncate text-sm font-bold text-foreground">
                             {log.member.name}
                           </span>
-                          <span className="text-[10px] text-stone-400">
+                          <span className="text-[10px] text-muted-foreground/70">
                             {log.totalMonth} this month
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 truncate text-xs text-stone-500">
+                        <div className="flex items-center gap-2 truncate text-xs text-muted-foreground">
                           <span className="truncate font-medium">{log.media.title}</span>
                           <Badge variant="outline" className={cn("h-4 px-1 py-0 text-[9px] uppercase tracking-wider", getTypeColor(log.media.type))}>
                             <TypeIcon className="mr-1 h-2 w-2" />
@@ -331,7 +333,7 @@ export function HomePage() {
 
                       {/* Amount */}
                       <div className="text-right">
-                        <div className="font-serif-jp text-lg font-bold text-[#1F2A44] tabular-nums">
+                        <div className="font-serif-jp text-lg font-bold text-foreground tabular-nums">
                           {log.amount}
                         </div>
                       </div>
@@ -353,7 +355,7 @@ function AnimatedCounter({ value }: { value: number }) {
   const chars = valueStr.split('')
 
   return (
-    <span className="inline-flex items-baseline overflow-hidden tabular-nums font-bold text-[#1F2A44]">
+    <span className="inline-flex items-baseline overflow-hidden tabular-nums font-bold text-foreground">
       {chars.map((char, index) => (
         <Digit key={index} char={char} />
       ))}

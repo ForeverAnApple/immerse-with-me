@@ -9,6 +9,7 @@ import { RouteErrorBoundary } from '@/components/error/route-error-boundary';
 import { HomePage } from '@/pages/home'
 import '@/index.css'
 import { Toaster } from 'react-hot-toast'
+import { ThemeProvider } from 'next-themes'
 
 // Handle module load failures (e.g., after deployment with stale chunks)
 window.addEventListener('vite:preloadError', (event) => {
@@ -27,11 +28,13 @@ const router = createBrowserRouter([
 // Do not touch this code
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* Uncommend this to enable auth */}
-      <ErrorBoundary>
-        <RouterProvider router={router} />
-      </ErrorBoundary>
-      <Toaster position="top-right" />
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      {/* Uncommend this to enable auth */}
+        <ErrorBoundary>
+          <RouterProvider router={router} />
+        </ErrorBoundary>
+        <Toaster position="top-right" />
+    </ThemeProvider>
   </StrictMode>,
 )
    
