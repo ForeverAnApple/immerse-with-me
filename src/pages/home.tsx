@@ -170,25 +170,15 @@ export function HomePage() {
   } as const
 
   return (
-    <div className="relative min-h-screen w-full bg-[#FAFAF7] text-[#1A1A1A] font-sans selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="relative min-h-screen w-full bg-[#F5F0EB] text-[#1A1A1A] font-sans selection:bg-indigo-100 selection:text-indigo-900">
       {/* Font Import */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&display=swap');
         .font-serif-jp { font-family: 'Zen Old Mincho', serif; }
       `}</style>
 
-      {/* Background Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* Subtle paper texture/noise */}
-        <div className="absolute inset-0 opacity-[0.4] mix-blend-multiply" 
-             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
-        />
-        {/* Very subtle gradients */}
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-white/80 to-transparent" />
-      </div>
-
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-black/5 bg-[#FAFAF7]/80 px-6 backdrop-blur-md">
+      <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-black/5 bg-[#F5F0EB]/80 px-6 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-[#1F2A44]" />
           <span className="font-serif-jp text-lg font-bold tracking-tight text-[#1F2A44]">Immerse With Me</span>
@@ -287,7 +277,7 @@ export function HomePage() {
           
           <div className="relative space-y-3">
             {/* Gradient mask for fading out at bottom */}
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FAFAF7] to-transparent z-20" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F5F0EB] to-transparent z-20" />
             
             <AnimatePresence initial={false} mode='popLayout'>
               {recentLogs.map((log) => {
