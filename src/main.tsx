@@ -7,6 +7,7 @@ import {
 import { ErrorBoundary } from '@/components/error/boundary';
 import { RouteErrorBoundary } from '@/components/error/route-error-boundary';
 import { HomePage } from '@/pages/home'
+import LoremIpsumPage from '@/pages/lorem-ipsum'
 import '@/index.css'
 import { Toaster } from 'react-hot-toast'
 
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+    errorElement: <RouteErrorBoundary />,
+  },
+  {
+    path: "/lorem-ipsum",
+    element: <LoremIpsumPage />,
     errorElement: <RouteErrorBoundary />,
   }
 ]);
