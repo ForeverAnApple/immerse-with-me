@@ -29,7 +29,7 @@
 		"skipLibCheck": true,
 		"allowSyntheticDefaultImports": true,
 		"useDefineForClassFields": true,
-		"types": ["vite/client"]
+		"types": ["vite/client", "vitest/globals"]
 	},
 	"include": ["src", "vite.config.ts"],
 	"exclude": ["dist", "node_modules"]
