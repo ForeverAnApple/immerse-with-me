@@ -53,7 +53,7 @@ const COLORS = [
   'bg-indigo-100 text-indigo-700',
 ]
 
-const generateLog = (): LogEntry => {
+export const generateLog = (): LogEntry => {
   const name = MEMBER_NAMES[Math.floor(Math.random() * MEMBER_NAMES.length)]
   const initials = name.split(' ').map(n => n[0]).join('')
   const type = MEDIA_TYPES[Math.floor(Math.random() * MEDIA_TYPES.length)]
@@ -80,7 +80,7 @@ const generateLog = (): LogEntry => {
   }
 }
 
-const getTypeColor = (type: MediaType) => {
+export const getTypeColor = (type: MediaType) => {
   switch (type) {
     case 'Anime': return 'bg-blue-50 text-blue-700 border-blue-200'
     case 'Manga': return 'bg-green-50 text-green-700 border-green-200'
@@ -91,7 +91,7 @@ const getTypeColor = (type: MediaType) => {
   }
 }
 
-const getTypeIcon = (type: MediaType) => {
+export const getTypeIcon = (type: MediaType) => {
   switch (type) {
     case 'Anime': return Play
     case 'Manga': 
