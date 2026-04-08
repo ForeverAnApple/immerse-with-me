@@ -43,13 +43,10 @@ const MEDIA_TITLES = [
 ]
 const MEDIA_TYPES: MediaType[] = ['Anime', 'Manga', 'LN', 'VN', 'Listening', 'Reading']
 const COLORS = [
-  'bg-red-100 text-red-700',
-  'bg-blue-100 text-blue-700',
-  'bg-green-100 text-green-700',
-  'bg-amber-100 text-amber-700',
-  'bg-purple-100 text-purple-700',
-  'bg-pink-100 text-pink-700',
+  'bg-slate-100 text-slate-700',
+  'bg-slate-200 text-slate-800',
   'bg-indigo-100 text-indigo-700',
+  'bg-indigo-50 text-indigo-700',
 ]
 
 const generateLog = (): LogEntry => {
@@ -81,12 +78,12 @@ const generateLog = (): LogEntry => {
 
 const getTypeColor = (type: MediaType) => {
   switch (type) {
-    case 'Anime': return 'bg-blue-50 text-blue-700 border-blue-200'
-    case 'Manga': return 'bg-green-50 text-green-700 border-green-200'
-    case 'LN': return 'bg-amber-50 text-amber-700 border-amber-200'
-    case 'VN': return 'bg-purple-50 text-purple-700 border-purple-200'
-    case 'Listening': return 'bg-red-50 text-red-700 border-red-200'
-    default: return 'bg-stone-100 text-stone-600 border-stone-200'
+    case 'Anime': return 'bg-indigo-50 text-indigo-700 border-indigo-200'
+    case 'Manga': return 'bg-slate-100 text-slate-700 border-slate-200'
+    case 'LN': return 'bg-indigo-100 text-indigo-800 border-indigo-200'
+    case 'VN': return 'bg-slate-200 text-slate-800 border-slate-300'
+    case 'Listening': return 'bg-indigo-50 text-indigo-700 border-indigo-200'
+    default: return 'bg-slate-100 text-slate-700 border-slate-200'
   }
 }
 
@@ -129,18 +126,18 @@ export function HomePage() {
       value: '28,450',
       sub: 'This Month',
       icon: Clock,
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
-      border: 'border-amber-100',
+      color: 'text-indigo-700',
+      bg: 'bg-indigo-50',
+      border: 'border-indigo-100',
     },
     {
       label: 'Logs Created',
       value: '1,204',
       sub: 'This Month',
       icon: BookOpen,
-      color: 'text-emerald-700',
-      bg: 'bg-emerald-50',
-      border: 'border-emerald-100',
+      color: 'text-slate-700',
+      bg: 'bg-slate-100',
+      border: 'border-slate-200',
     },
     {
       label: 'Active Members',
@@ -280,7 +277,7 @@ export function HomePage() {
         >
           <div className="mb-6 flex items-center justify-between px-2">
              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />
                 <span className="text-xs font-medium uppercase tracking-wider text-stone-500">Live Activity</span>
              </div>
           </div>
