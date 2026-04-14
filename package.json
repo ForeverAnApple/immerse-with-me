@@ -76,13 +76,17 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.1.0",
     "autoprefixer": "^10.4.21",
+    "jsdom": "^29.0.2",
     "tailwindcss": "^4.1.16",
     "typescript": "~5.9.3",
-    "vite": "^7.2.1"
+    "vite": "^7.2.1",
+    "vitest": "^4.1.4"
   }
 }
